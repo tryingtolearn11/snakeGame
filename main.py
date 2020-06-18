@@ -37,10 +37,10 @@ def redrawWindow(surface):
     surface.fill(functions.BLACK)
     # Drawing Visible Grid Option Button
     gridbox = pygame.Rect(20, 520, 90, 20)
-    pygame.draw.rect(surface,  (255, 255, 255), gridbox)
+    pygame.draw.rect(surface, functions.WHITE, gridbox)
     # Drawing Text to screen
     font = pygame.font.SysFont('didot.ttc', 20)
-    img = font.render('Toggle Grid', True, (0, 0, 0))
+    img = font.render('Toggle Grid', True, functions.BLACK)
     testRectObj = img.get_rect()
     testRectObj.center = (30, 524)
     grid = surface.blit(img, testRectObj.center)
@@ -48,6 +48,13 @@ def redrawWindow(surface):
     pressed1, pressed2, pressed3 = pygame.mouse.get_pressed()
     if grid.collidepoint(pos) and pressed1:
         displayGRID = False
+    # LETS MAKE A TITLE Text
+    # Drawing Text to screen
+    font2 = pygame.font.SysFont('chalkduster.ttc', 60)
+    img2 = font2.render('SNAKE', True, functions.GREEN)
+    testRectObj2 = img2.get_rect()
+    testRectObj2.center = (200, 520)
+    surface.blit(img2, testRectObj2.center)
     # Draw rest of the Game
     s.draw(surface)
     apple.draw(surface)
