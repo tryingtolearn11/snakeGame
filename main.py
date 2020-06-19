@@ -1,5 +1,4 @@
 import pygame
-import sys
 import functions
 import tkinter as tk
 from tkinter import messagebox
@@ -7,6 +6,8 @@ from functions import snake
 from functions import cell, randomFood
 from pygame import mixer
 pygame.init()
+
+
 # Background Music
 mixer.music.load('bodybuilding.mp3')
 mixer.music.play(-1)
@@ -20,7 +21,7 @@ def message_box(subject, content):
     try:
         root.destroy()
     except:
-        pass
+        print("An exception occured")
 
 
 def drawGrid(w, rows, surface, displayGRID):
@@ -58,7 +59,7 @@ def redrawWindow(surface):
     font2 = pygame.font.SysFont('chalkduster.ttc', 60)
     img2 = font2.render('SNAKE', True, functions.GREEN)
     testRectObj2 = img2.get_rect()
-    testRectObj2.center = (200, 500)
+    testRectObj2.center = (200, 530)
     surface.blit(img2, testRectObj2.center)
     # Draw rest of the Game
     s.draw(surface)
